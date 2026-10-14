@@ -1,0 +1,169 @@
+:root {
+  --bg: #eef4ff;
+  --card: #ffffff;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --secondary: #e5e7eb;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --success: #15803d;
+  --error: #b91c1c;
+  --shadow: rgba(15, 23, 42, 0.12);
+  --border: #dfe7f5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #dbeafe, #f8fafc);
+  color: var(--text);
+}
+
+.app {
+  width: min(92vw, 700px);
+  display: grid;
+  gap: 1.25rem;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 18px;
+  box-shadow: 0 20px 40px var(--shadow);
+  padding: 2rem;
+}
+
+h1,
+h2 {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 1.25rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  text-align: center;
+}
+
+label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+input:focus {
+  border-color: var(--primary);
+}
+
+.button-row {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+button {
+  flex: 1;
+  border: none;
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  background: var(--primary);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+button.secondary {
+  background: var(--secondary);
+  color: var(--text);
+}
+
+button.secondary:hover {
+  background: #d1d5db;
+}
+
+#result {
+  min-height: 1.5em;
+  margin-top: 1.25rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+#result.success {
+  color: var(--success);
+}
+
+#result.error {
+  color: var(--error);
+}
+
+.history-panel {
+  padding-top: 1.25rem;
+}
+
+#historyList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+#historyList li {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  background: #f8fafc;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+#historyList li strong {
+  color: var(--text);
+}
+
+#historyList li span {
+  color: var(--muted);
+}
+
+#historyList li .status {
+  font-weight: 700;
+}
+
+#historyList li .status.palindrome {
+  color: var(--success);
+}
+
+#historyList li .status.not-palindrome {
+  color: var(--error);
+}
+
+.empty-state {
+  justify-content: center;
+  color: var(--muted);
+  text-align: center;
+}
